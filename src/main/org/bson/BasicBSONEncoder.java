@@ -44,6 +44,7 @@ import static org.bson.BSON.UNDEFINED;
 import static org.bson.BSON.regexFlags;
 
 import java.lang.reflect.Array;
+import java.math.BigDecimal;
 import java.nio.Buffer;
 import java.util.Date;
 import java.util.List;
@@ -365,7 +366,7 @@ public class BasicBSONEncoder implements BSONEncoder {
 	        _put( NUMBER_LONG , name );
 	        _buf.writeLong( n.longValue() );
 	    }
-	    else if ( n instanceof Float || n instanceof Double ) {
+ else if (n instanceof Float || n instanceof Double || n instanceof BigDecimal) {
 	      _put( NUMBER , name );
 	      _buf.writeDouble( n.doubleValue() );
 	    }
